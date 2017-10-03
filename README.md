@@ -7,7 +7,7 @@ Code for [Neural Greedy Constituent Parsing with Dynamic Oracles](http://www.acl
 
 Dependencies: Eigen, boost, g++.
 
-    mikdir build
+    mkdir build
 
     # Download headers for boost and Eigen
     cd lib
