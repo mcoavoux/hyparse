@@ -1,0 +1,71 @@
+#Test designed to check the treebank preprocessing
+<SENT ROOT>
+       <NP SUBJ>
+               les D le
+               chats N chat
+       </NP>
+       <VN HEAD>
+                mangent V manger
+       </VN>
+       <NP OBJ>
+                des D un
+                pommes N pomme
+       </NP>
+       <PP OBJ>
+		avec P avec
+		<NP>
+			des D un
+               		noix N noix
+		</NP>
+       </PP>
+       ,	PONCT	,
+       <COORD>
+	    et CC et
+	    des D de
+	    carottes N	carottes
+       </COORD>
+</SENT>
+
+
+<SENT ROOT>
+       <NP SUBJ>
+               les D le
+               chats N chat
+       </NP>
+       <VN HEAD>
+                mangent V manger
+       </VN>
+       <NP OBJ>
+                des D un
+                pommes N pomme
+       </NP>
+</SENT>
+
+<SENT ROOT>
+       <NP SUBJ>
+               les D le
+               souris N souris
+       </NP>
+       <VN HEAD>
+                mangent V manger
+       </VN>
+       <NP OBJ>
+                des D un
+                noix N noix
+       </NP>
+</SENT>
+
+<SENT ROOT>
+       <NP SUBJ>
+               les D le
+               souris N souris
+       </NP>
+       <VN HEAD>
+                mangent V manger
+       </VN>
+       <NP OBJ>
+                des D un
+                noix N noix
+       </NP>
+</SENT>
+

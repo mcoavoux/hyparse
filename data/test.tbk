@@ -1,0 +1,47 @@
+word	tag	sword
+<ROOT-head>
+   <SENT-head>
+      <NP-head>
+         Article	NC-head	Article
+         22	ADJ	22
+         <PP>
+            de	P-head	de
+            <NP>
+               la	DET	la
+               loi	NC-head	loi
+               <PP>
+                  d'	P-head	d'
+                  <NP>
+                     orientation	NC-head	orientation
+                  </NP>
+               </PP>
+               <PP>
+                  sur	P-head	sur
+                  <NP>
+                     la	DET	la
+                     ville	NC-head	ville
+                  </NP>
+               </PP>
+            </NP>
+         </PP>
+      </NP>
+      :	PONCT	:
+      <NP>
+         travaux	NC-head	travaux
+         <AP>
+            immobiliers	ADJ-head	$UNK$
+         </AP>
+         <PP>
+            en	P-head	en
+            <NP>
+               secteurs	NC-head	secteurs
+               <VPpart>
+                  sauvegardés	VPP-head	$UNK$
+               </VPpart>
+            </NP>
+         </PP>
+      </NP>
+      .	PONCT	.
+   </SENT>
+</ROOT>
+<ROOT-head>

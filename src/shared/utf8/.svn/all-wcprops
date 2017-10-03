@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/authscm/mcoavoux/svn/hyparse/!svn/ver/620/trunk/src2/shared/utf8
+END
+core.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/authscm/mcoavoux/svn/hyparse/!svn/ver/620/trunk/src2/shared/utf8/core.h
+END
+unchecked.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/authscm/mcoavoux/svn/hyparse/!svn/ver/620/trunk/src2/shared/utf8/unchecked.h
+END
+checked.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/authscm/mcoavoux/svn/hyparse/!svn/ver/620/trunk/src2/shared/utf8/checked.h
+END

@@ -1,0 +1,74 @@
+word	tag	sword
+<SENT-HEAD>
+       <NP>
+               les D le
+               chats N-HEAD chat
+       </NP>
+       <VN-HEAD>
+                mangent V-HEAD manger
+       </VN>
+       <NP>
+                des D un
+                pommes N-HEAD pomme
+       </NP>
+       <PP>
+		avec P-HEAD avec
+		<NP>
+			des D un
+               		noix N-HEAD noix
+		</NP>
+       </PP>
+       ,	PONCT	,
+       <COORD>
+	    et CC et
+	    <NP-HEAD>
+	    	    des D de
+	    	    carottes N-HEAD	carottes
+            </NP>
+       </COORD>
+</SENT>
+
+
+<SENT-HEAD>
+       <NP>
+               les D le
+               chats N-HEAD chat
+       </NP>
+       <VN-HEAD>
+                mangent V-HEAD manger
+       </VN>
+       <NP>
+                des D un
+                pommes N-HEAD pomme
+       </NP>
+</SENT>
+
+<SENT-HEAD>
+       <NP>
+               les D le
+               souris N-HEAD souris
+       </NP>
+       <VN-HEAD>
+                mangent V-HEAD manger
+       </VN>
+       <NP>
+                des D un
+                noix N-HEAD noix
+       </NP>
+</SENT>
+
+<SENT-HEAD>
+       <NP>
+               les D le
+               souris N-HEAD souris
+       </NP>
+       <VN-HEAD>
+                mangent V-HEAD manger
+       </VN>
+       <NP>
+                des D un
+                noix N-HEAD noix
+       </NP>
+</SENT>
+
+ 
