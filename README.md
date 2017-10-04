@@ -25,9 +25,10 @@ Two executable files should appear in the `build` folder: `nnt` (trainer) and `n
 # Train
 
 The data must be in a pseudo-xml format (see example files) where each
-line is either a constituent beginning or end (e.g. <NP> or </NP>)
+line is either a constituent markup (e.g. `<NP>` or `</NP>`)
 or a token and a number of associated fields (typically morphological attributes).
-
+Headedness information is indicated with the suffix `-head` on non-terminal
+symbols or POS tags.
 
 Example run to train a model:
 
