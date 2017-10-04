@@ -75,7 +75,7 @@ Static setting:
 Dynamic setting:
 
     cd build
-    # bash repro_acl_static.sh <path to data> <threads> <list of languages>
+    # bash repro_acl_dynamic.sh <path to data> <threads> <list of languages>
     bash repro_acl_dynamic.sh ../../SPMRL2015 16 "POLISH SWEDISH"
     # 16 experiments per language
 
