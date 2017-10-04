@@ -61,21 +61,28 @@ in the 'dynamic' setting, using the provided pretrained models.
 The data is not included in the repository, due to license restrictions.
 
     cd build
-    bash parse.bash <path to data>
+    bash parse.bash <path to data>/SPMRL2015/
+
+The size of the beam is determined by the file `beam` in each pretrained
+model folder (default=1 for every model). For example, to parse with beam=4, run:
+
+    echo 4 > pretrained_models/<language>/beam
+
+before launching parsing.
 
 # Retrain the parser
 
 Static setting:
 
     cd build
-    # bash repro_acl_static.sh <path to data> <threads> <list of languages>
+    # bash repro_acl_static.sh <path to data>/SPMRL2015 <threads> <list of languages>
     bash repro_acl_static.sh ../../SPMRL2015 4 "POLISH SWEDISH"
     # -> launch 4 experiments per language (choose a number of threads that is a multiple of 4)
 
 Dynamic setting:
 
     cd build
-    # bash repro_acl_dynamic.sh <path to data> <threads> <list of languages>
+    # bash repro_acl_dynamic.sh <path to data>/SPMRL2015 <threads> <list of languages>
     bash repro_acl_dynamic.sh ../../SPMRL2015 16 "POLISH SWEDISH"
     # 16 experiments per language
 
