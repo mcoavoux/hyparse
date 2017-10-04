@@ -24,6 +24,7 @@ EVALB_PARAMS="-X -p spmrl.prm"
 maindir=repro_spmrl_dynamic
 mkdir -p $maindir/results
 
+# h: size of hidden layer
 for h in 512
 do
 for language in ${LANGS}
@@ -38,20 +39,27 @@ do
     TESTRAW="$datadir/test/treebank.raw"
     TESTMRG="$datadir/test/treebank.mrg"
 
+    # templates
     TPLS=../data/dense_templates/generic_gmorph_$language.tpl
+    # size of embeddings
     DIMS=../data/dimensions/NN_DIMS_$language
 
     modeldir=$maindir/$language
     mkdir -p $modeldir
-
+    
+    # it: number of iterations
     it=24
     
+    # lr: learning rate
     for lr in 0.01 0.02
     do
+        # dc: decrease constant for learning rate
         for dc in 0 1e-6
         do  
+        # p: probability that controls exploration (see paper)
         for p in 0.5 0.9
         do
+        # k: train with dynamic oracle every other k sentence
         for k in 8 16
         do
             ((i=i%N)); ((i++==0)) && wait
@@ -60,15 +68,18 @@ do
             modelname=$modeldir/h${h}_it${it}_lr${lr}_dc${dc}_layer1_morph_explore_p${p}k${k}
             mkdir $modelname
 
+            # train (dump current model after each iteration)
             echo ./nnt -e $p -k $k -f 2 -a -i $it -t $TPLS -m $modelname -b 1 -l $lr -d $dc -H $h -K $DIMS $TRAIN $DEV > $modelname/trainer_log.txt
             ./nnt -e $p -k $k -f 2 -a -i $it -t $TPLS -m $modelname -b 1 -l $lr -d $dc -H $h -K $DIMS $TRAIN $DEV 2>> $modelname/trainer_log.txt
 
+            # parse with final model
             ./nnp -I $DEVRAW -O $modelname/parse_result_dev.mrg -m $modelname
             ./evalb_spmrl $EVALB_PARAMS $DEVMRG $modelname/parse_result_dev.mrg > $modelname/evalb_dev.txt
 
             ./nnp -I $TESTRAW -O $modelname/parse_result_test.mrg -m $modelname
             ./evalb_spmrl $EVALB_PARAMS $TESTMRG $modelname/parse_result_test.mrg > $modelname/evalb_test.txt
 
+            # parse with models dumped at each iteration
             for j in `seq 1 $it`
             do
                 for f in "embed_dims" "encoder" "templates" "ttd"

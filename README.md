@@ -69,11 +69,19 @@ Static setting:
 
     cd build
     # bash repro_acl_static.sh <path to data> <threads> <list of languages>
-    bash repro_acl_static.sh ../../SPMRL2015 2 "POLISH SWEDISH"
+    bash repro_acl_static.sh ../../SPMRL2015 4 "POLISH SWEDISH"
+    # -> launch 4 experiments per language (choose a number of threads that is a multiple of 4)
 
-Dynamic setting: (soon)
+Dynamic setting:
+
+    cd build
+    # bash repro_acl_static.sh <path to data> <threads> <list of languages>
+    bash repro_acl_dynamic.sh ../../SPMRL2015 16 "POLISH SWEDISH"
+    # 16 experiments per language
+
 
 NB:
-- hyperparameters are hardcoded in the experiment scripts.
- 
+- Hyperparameters are hardcoded in the experiment scripts.
+- Training time should take less than 24h for small corpora (Polish, Swedish, Basque, Hebrew),
+  several days for Korean, Hungarian, French and Arabic, and around 7 days for German.
 
