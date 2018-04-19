@@ -88,20 +88,28 @@ int main(int argc,char *argv[]){
     ConllOutStream conllstream;
     NativeOutStream nativestream;
 
+    cerr << "Opening output files" << endl;
     if (!outfile.empty()){ptbstream = PennTreebankOutStream(outfile);}
     if(!conllfile.empty()){conllstream = ConllOutStream(conllfile);}
     if(!nativefile.empty()){nativestream = NativeOutStream(nativefile);}
+    cerr << "Opening output files: done" << endl;
 
     //Start up the logger
+    cerr << "Opening logging file" << endl;
     string logfile = modelfile+"/parse.log";
     PLOGGER_START(logfile.c_str());
+    cerr << "Opening logging file: done" << endl;
 
     //Loads the parser
+    cerr << "Loading string encoder" << endl;
     IntegerEncoder::get()->load(modelfile+"/encoder");
+    cerr << "Loading string encoder: done" << endl;
 
     //IntegerEncoder::get()->save("foo/encoder2");
 
+    cerr << "Initializing lexer" << endl;
     AbstractLexer *lex = new TbkLexer();
+    cerr << "Initializing lexer: done" << endl;
     if (global_perceptron){
         GlobalNnParser nnp(modelfile, true);
         nnp.summary(cerr);
@@ -116,10 +124,13 @@ int main(int argc,char *argv[]){
             nnp.parse_corpus(lex,cin,K,ptbstream,conllstream,nativestream);
         }
     }else{
+        cerr << "Loading models" << endl;
         NnSrParser nnp(modelfile, neural_net);
+        cerr << "Loading models: done" << endl;
+        
         cerr << "Precomputing hidden layer ... " << endl;
         nnp.set_test_mode(true);
-        cerr << "Done" << endl;
+        cerr << "Precomputing hidden layer: done" << endl;
         //IntegerEncoder::get()->save("foo/encoder3");
 
         nnp.summary(cerr);
@@ -127,8 +138,13 @@ int main(int argc,char *argv[]){
         //RUN
         //if(!infile.empty() && processors == 1){
         if(!infile.empty()){
+            cerr << "Reading input data" << endl;
             ifstream input_source(infile);
+            cerr << "Reading input data: done" << endl;
+            cerr << "Starting parsing" << endl;
             nnp.parse_corpus(lex,input_source,K,ptbstream,conllstream,nativestream);
+            cerr << "Starting parsing: done" << endl;
+            
             input_source.close();
         }else{// if(processors == 1){
             nnp.parse_corpus(lex,cin,K,ptbstream,conllstream,nativestream);
