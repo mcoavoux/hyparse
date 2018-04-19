@@ -845,8 +845,11 @@ void NeuralNetwork::average(){
 }
 
 void NeuralNetwork::set_test_mode(bool t){
+#ifdef MEMORY_EFFICIENT
+#else
    test_mode = t;
    input_layer->precompute_hidden_layer();
+#endif
 }
 int NeuralNetwork::get_concatenated_layers_size(){
    int n = 0;

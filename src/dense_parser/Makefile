@@ -1,5 +1,6 @@
 #!/usr/bin/make
 
+
 PROJ_HOME=../..
 
 #Linux/macosx
@@ -41,12 +42,19 @@ DOC_DIR = $(PROJ_HOME)/doc
 	#ALL = $(GSS_TRAINER_NAME) $(GSS_PARSER_NAME)       
 #else
 INCLUDES = -I$(PROJ_HOME)/lib/gtest/include -I$(PROJ_HOME)/lib -I$(PROJ_HOME)/src/shared -I$(PROJ_HOME)/src/sparse_parser -I$(PROJ_HOME)/src/dense_parser
-CFLAGS = -Wall -Wno-sign-compare -std=c++11 -O3 -DGTEST_USE_OWN_TR1_TUPLE=1 $(LOG_FLAGS) -fopenmp -DEIGEN_DONT_PARALLELIZE -DENABLE_PARALLEL ##### -DCONVOLUTION -> bug Korean
+CFLAGS = -Wall -Wno-sign-compare -std=c++11 -O3 -DGTEST_USE_OWN_TR1_TUPLE=1 $(LOG_FLAGS) -fopenmp -DEIGEN_DONT_PARALLELIZE -DENABLE_PARALLEL $(MEMO)
+##### -DCONVOLUTION -> bug Korean
 LIBS =  -L$(PROJ_HOME)/lib/gtest/lib -L$(PROJ_HOME)/src/shared -L$(PROJ_HOME)/src/sparse_parser -fopenmp
 ALL =  $(NN_TRAINER_NAME) $(NN_PARSER_NAME)
 #endif
 
-all :  $(ALL)
+
+all:  $(ALL)
+
+memory_efficient: MEMO=-DMEMORY_EFFICIENT
+memory_efficient: all
+
+
 
 clean:
 	rm -f *.o $(BUILD_DIR)/$(NN_TRAINER_NAME) $(BUILD_DIR)/$(NN_PARSER_NAME)
